@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+ 
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/Chart.min.js"></script>
+  <!-- Bootstrap core CSS -->
+  
+  <!-- Bootstrap theme -->
+  <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="dist/css/bootstrap.css" rel="stylesheet">
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <script type="text/javascript" src="buttons.js" async></script>
+  <script type="text/javascript" src="general.js" async></script>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+
+  
+  
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
+          
+      
+
+</head>
+<body>
+  <div class="header">
+    <img src="header.jpg" style= "width:15%">
+  </div>
+  
+  
+<div class="top-content"> 
+  <div class="row">
+      <div class = "col-lg-9 col-md-9 col-s-12 col-xs-12 left-column" id="chart-container" >
+          <canvas id="graphCanvas" ></canvas>  
+      </div>
+      <div class="col-lg-3 col-md-3 col-xs-6 right-column">
+          <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fas fa-bullhorn fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge" id="total_sales" ></div>
+                          <div>Games</div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+          <div class="panel panel-yellow">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fas fa-crown fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge" id="popular_genre"></div>
+                          <div> </div>
+                      </div>
+                  </div>
+              </div>
+             </div>
+        </div>
+      
+      
+  
+  
+    </div> 
+    
+  
+      
+  </div> 
+
+  
+
+    <div class="page-header" >
+        <div class="btn-toolbar" id="years">
+        <button type="button" value="2010" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2010" onclick="showTableHidden();showTable(this.value);showReleases(this.value); showPopular(this.value);myFunction(this.value)" >2010!</button>
+        <button type="button" value ="2011" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2011" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2011!</button>
+        <button type="button" value ="2012" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2012" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2012!</button>
+        <button type="button" value ="2013" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2013" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2013!</button>
+        <button type="button" value ="2014" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2014" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2014!</button>
+        <button type="button" value ="2015" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2015" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2015!</button>
+        <button type="button" value ="2016" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2016" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2016!</button>
+        <button type="button" value ="2017" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2017" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2017!</button>
+        <button type="button" value ="2018" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2018" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2018!</button>
+        <button type="button" value ="2019" class="btn btn-info" data-toggle="collapse" data-target="#2010" aria-expanded="true" id="btn2019" onclick="showTable(this.value);showReleases(this.value);showPopular(this.value);myFunction(this.value)">2019!</button>
+        </div>
+       
+    </div>
+    
+                   
+                
+        <button id="prev-year">Prev year</button>
+
+        <select id="months-tab">
+            <option data-month="0">January</option>
+            <option data-month="1">February</option>
+            <option data-month="2">March</option>
+            <option data-month="3">April</option>
+            <option data-month="4">May</option>
+            <option data-month="5">June</option>
+            <option data-month="6">July</option>
+            <option data-month="7">August</option>
+            <option data-month="8">September</option>
+            <option data-month="9">October</option>
+            <option data-month="10">November</option>
+            <option data-month="11">December</option>
+        </select>
+    <div id="bootstrapModalFullCalendar"></div>
+
+    <div id="fullCalModal" class="modal fade" >
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="modalTitle" class="modal-title"></h4>
+                        <hr>
+                        <img id="image" width = "50%" src=""/>
+                        
+                        
+                    </div>
+                    <div id="modalBody" class="modal-body">
+                        <h5>Description :</h5>
+                        <p id="description"></p>
+                        <hr>
+                        <h5>Genre : </h5>
+                        <h5>Developer : </h5>
+                        <h5>Publisher : </h5>
+                        <h5>Price : </h5>
+                        
+                        
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary"><a id="eventUrl" target="_blank">Game Page</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+      
+  
+
+           
+    
+
+<script>
+
+        $(document).ready(function() {
+         var calendar = $('#bootstrapModalFullCalendar').fullCalendar({
+            defaultView: 'basicWeek',
+            themeSystem: 'bootstrap4',
+            selectable: true,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'basicWeek,agendaWeek,agendaDay, listMonth'
+            },
+            views: {
+            agendaWeek: {
+              buttonText: 'agendaWeek'
+            },
+            basicWeek: {
+              buttonText: 'basicWeek'
+            }
+          },
+          
+            weekNumbers: true,
+            eventLimit: true,
+            displayEventTime: false,
+            events: {
+                url: 'calendar.php',
+                type: 'POST', // Send post data
+                error: function() {
+                    alert('There was an error while fetching events.');
+                }
+            },
+            
+            eventClick:  function(event, jsEvent, view) {
+                    $('#modalTitle').html(event.title);
+                    $('#description').html(event.description);
+                    $('#eventUrl').attr('href', event.gameUrl);
+                    $('#image').attr('src', event.gameImg);
+                    $('#fullCalModal').modal('show');
+                    
+                    return false;
+                }
+            });
+            $('#months-tab').on('change', function() {
+    // get month from the tab. Get the year from the current fullcalendar date
+    var month = $(this).find(":selected").attr('data-month'),
+        year = $("#bootstrapModalFullCalendar").fullCalendar('getDate').format('YYYY');
+    
+    var m = moment([year, month, 1]).format('YYYY-MM-DD');
+    
+    $('#bootstrapModalFullCalendar').fullCalendar('gotoDate', m );
+});
+
+// go to prev year
+$("#btn2010").on('click', function() {
+    var d = $('#btn2010').val();
+    $('#bootstrapModalFullCalendar').fullCalendar( 'gotoDate', d );
+});
+$("#btn2011").on('click', function() {
+    var d = $('#btn2011').val();
+    $('#bootstrapModalFullCalendar').fullCalendar( 'gotoDate', d );
+});
+
+// set the month as the current month
+// has to be -1 because this is 0 based
+var month = $("#bootstrapModalFullCalendar").fullCalendar('getDate').format('MM') -1 ;
+// set the correct month selected
+$("#months-tab").find('option[data-month=' + month + ']').prop('selected', true);
+        });
+        </script>   
+
+</body>
+</html>

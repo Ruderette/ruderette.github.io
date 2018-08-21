@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <!-- Material Kit CSS -->
+    <link href="../assets/css/fullcalendar.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    
+        <div class="wrapper">
+            <div class="sidebar" data-color="orange">
+            <!--
+            Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+      
+            Tip 2: you can also add an image using data-image tag
+            -->
+      
+              <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                    CT
+                </a>
+      
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                    Creative Tim
+                </a>
+                <div class="navbar-minimize">
+                  <button id="minimizeSidebar" class="btn btn-simple btn-icon btn-neutral btn-round">
+                      <i class="now-ui-icons text_align-center visible-on-sidebar-regular"></i>
+                      <i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i>
+                  </button>
+                </div>
+              </div>
+      
+              <div class="sidebar-wrapper">
+                <div class="user">
+                    <div class="photo">
+                        
+                    </div>
+                    <div class="info">
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>
+                                James Amos
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="clearfix"></div>
+                        
+                    </div>
+                </div>
+                <ul class="nav">
+      
+                    
+      
+                    <li class ="active">
+                        <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="now-ui-icons design_image"></i>
+                            <p>Filter by genre
+                               <b class="caret"></b>
+                            </p>
+                        </a>
+      
+                        <div class="collapse" id="pagesExamples">
+                            <ul class="nav">
+                                <li>
+                                        <input type="checkbox" name="Adventure" value="Adventure"><label>Adventure</label><br>
+                                        <input type="checkbox" name="Action" value="Action"><label>Action</label><br>
+                                        <input type="checkbox" name="Strategy" value="Strategy"><label>Strategy</label><br>
+                                        <input type="checkbox" name="Indie" value="Indie"><label>Indie</label><br>
+                                        <input type="checkbox" name="Racing" value="Racing"><label>Racing</label><br>
+                                        <input type="checkbox" name="Early Access" value="Early Access"><label>Early Access</label><br>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+  
+  
+        <div class="main-panel">
+          
+          
+          <div class="panel-header panel-header-lg" id="chartContainer">
+                  <canvas id="graphCanvas" height="400" ></canvas> 
+          </div>
+          
+            
+          
+          <div id="fullCalModal" class="modal"   data-backdrop="false">
+                  <div class="modal-dialog ">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h4 id="modalTitle" class="modal-title"></h4>
+                              <hr>
+                              <img id="image" width = "50%" src=""/> 
+                          </div>
+                          <div id="modalBody" class="modal-body">
+                              <h5>Description :</h5>
+                              <p id="description"></p>
+                              <hr>
+                              <h5>Genre : </h5><p id="genre"></p>
+                              <h5>Developer : </h5><p id="developer"></p>
+                              <h5>Publisher : </h5><p id="publisher"></p>
+                              <h5>Price : </h5><p id="price"></p>
+                              <h5>Sentiment: </h5> <p id="sentiment"></p>
+                              
+                              <h5>Release Date: </h5><p id="date_trial"></p>
+                          </div>
+                          <div class="modal-footer">
+                                 
+                          
+                              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                              <button class="btn btn-primary"><a id="eventUrl" target="_blank">Game Page</a></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                       
+      
+         
+          <div class="content">
+  
+              <div class="row">
+              <div class="col-lg-6 col-md-12">
+                  <div class="card card-calender">
+                    <div class="card-header">
+                      
+                      <h4 class="card-title">Ten Most Popular Game Tags</h4>
+                      
+                    </div>
+                    <div class="card-body">
+                      <div class="chart-area" id="doughnutContainer">
+                          <canvas id="doughnutChart" height="150" ></canvas>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="now-ui-icons arrows-1_refresh-69"></i> All time stats 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card card-calender">
+                      <div class="card-header">
+                        
+                        <h4 class="card-title">Ten Most Popular Game Specs</h4>
+                        
+                      </div>
+                      <div class="card-body">
+                        <div class="chart-area" id="doughnutContainerSpec">
+                            <canvas id="doughnutChartSpec" height="150" ></canvas>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="now-ui-icons arrows-1_refresh-69"></i> All time stats 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                
+              </div>
+  
+  
+                  <div class="row">
+                          
+  
+                      <div class="col-lg-12 col-md-12">
+                          <div class="card card-calender">
+                            <div class="card-header">
+                                <div id="buttonsForYears">
+                                    <button type="button" class="btn btn-primary" value="2010" id="btn2010" onclick="myFunction(this.value)">2010</button>
+                                    <button type="button" class="btn btn-primary" value="2011" id="btn2011" onclick="myFunction(this.value)">2011</button>
+                                    <button type="button" class="btn btn-primary" value="2012" id="btn2012" onclick="myFunction(this.value)">2012</button>
+                                    <button type="button" class="btn btn-primary" value="2013" id="btn2013" onclick="myFunction(this.value)">2013</button>
+                                    <button type="button" class="btn btn-primary" value="2014" id="btn2014" onclick="myFunction(this.value)">2014</button>
+                                    <button type="button" class="btn btn-primary" value="2015" id="btn2015" onclick="myFunction(this.value)">2015</button>
+                                    <button type="button" class="btn btn-primary" value="2016" id="btn2016" onclick="myFunction(this.value)">2016</button>
+                                    <button type="button" class="btn btn-primary" value="2017" id="btn2017" onclick="myFunction(this.value)">2017</button>
+                                    <button type="button" class="btn btn-primary" value="2018" id="btn2018" onclick="myFunction(this.value)">2018</button>
+                                    <button type="button" class="btn btn-primary" value="2019" id="btn2019" onclick="myFunction(this.value)">2019</button>
+                                </div>
+                                <br>
+                                <div class="monthButton" >
+                                    <button type="button" class="btn btn-primary" value="01" id="btnJan" onclick="getMonth(this.value); showCalendarMonth(this.value)">Jan</button>
+                                    <button type="button" class="btn btn-primary" value="02" id="btnFeb" onclick="getMonth(this.value); showCalendarMonth(this.value)">Feb</button>
+                                    <button type="button" class="btn btn-primary" value="03" id="btnMar" onclick="getMonth(this.value); showCalendarMonth(this.value)">Mar</button>
+                                    <button type="button" class="btn btn-primary" value="04" id="btnApr" onclick="getMonth(this.value); showCalendarMonth(this.value)">Apr</button>
+                                    <button type="button" class="btn btn-primary" value="05" id="btnMay" onclick="getMonth(this.value); showCalendarMonth(this.value)">May</button>
+                                    <button type="button" class="btn btn-primary" value="06" id="btnJun" onclick="getMonth(this.value); showCalendarMonth(this.value)">Jun</button>
+                                    <button type="button" class="btn btn-primary" value="07" id="btnJul" onclick="getMonth(this.value); showCalendarMonth(this.value)">Jul</button>
+                                    <button type="button" class="btn btn-primary" value="08" id="btnAug" onclick="getMonth(this.value); showCalendarMonth(this.value)">Aug</button>
+                                    <button type="button" class="btn btn-primary" value="09" id="btnSep" onclick="getMonth(this.value); showCalendarMonth(this.value)">Sep</button>
+                                    <button type="button" class="btn btn-primary" value="10" id="btnOct" onclick="getMonth(this.value); showCalendarMonth(this.value)">Oct</button>
+                                    <button type="button" class="btn btn-primary" value="11" id="btnNov" onclick="getMonth(this.value); showCalendarMonth(this.value)">Nov</button>
+                                    <button type="button" class="btn btn-primary" value="12" id="btnDec" onclick="getMonth(this.value); showCalendarMonth(this.value)">Dec</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                              <div id="bootstrapModalFullCalendar"></div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                    
+                    
+                    
+                  </div>
+                  
+                
+                  
+  
+          <footer class="footer" >
+            <div class="container-fluid">
+              <nav>
+                <ul>
+                  <li>
+                      <a href="">
+                          @Ruderette
+                      </a>
+                  </li>
+                  <li>
+                      <a href="">
+                         About Us
+                      </a>
+                  </li>
+                  <li>
+                      <a href="">
+                         Blog
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://github.com/creativetimofficial/now-ui-dashboard/blob/master/LICENSE.md">
+                          MIT License
+                      </a>
+                  </li>
+                </ul>
+              </nav>
+              
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    
+      
+  
+  
+  
+  
+  
+  
+  
+    </body>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+
+  
+
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+
+
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script type="text/javascript" src="buttonsTemplate8.js" async></script>
+</html>
